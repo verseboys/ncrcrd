@@ -1,0 +1,21 @@
+{% load wagtailcore_tags %}
+<div>
+  <h3 class="title">{{ value.title }}</h3>
+  {% if value.page %}
+    <a href="{% pageurl value.page %}">{{ value.title }}</a>
+  {% endif %}
+  <p class="content">
+  项目类型：{{ value.type }}<br />
+  负责人：{{ value.leader }}<br />
+  项目简介：{{ value.description }}<br />
+  </p>
+  <div class="badge {{ value.status }} d-flex flex-column">
+    <span>
+    {% if value.status == 'ongoing' %}
+      进行中
+    {% elif value.status == 'finished' %}
+      已完成
+    {% endif %}
+    </span>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+/* code ref: https://www.cssscript.com/demo/create-a-multi-level-drop-down-menu-with-pure-css/ */
+
+nav.navbar {
+  width: 100%;
+  background: var(--navbar-background);
+  padding: 0 0;
+  font-size: 20px;
+  z-index: 1000!important;
+
+  .container>ul {
+    width: 100%;
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: var(--navbar-background);
+  }
+
+  ul li {
+    display: block;
+    position: relative;
+    float: left;
+    background: var(--navbar-background);
+  }
+
+  /* This hides the dropdowns */
+  li ul { display: none; }
+
+  ul li a {
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    white-space: nowrap;
+    color: #fff;
+    font-size:18px;
+  }
+  ul li ul li a {
+    font-size:16px;
+  }
+  ul li a:hover { background: var(--navbar-background-active); }
+
+  ul li.active > a { background: var(--navbar-background-active); }
+  ul li.ancestor > a { background: var(--navbar-background-active); }
+
+  /* Display the dropdown */
+  li:hover > ul {
+    display: block;
+    position: absolute;
+  }
+
+  li:hover li { float: none; }
+
+  li:hover a { background: var(--navbar-background); }
+
+  li:hover li a:hover { background: var(--navbar-background-active); }
+
+  li ul li { border-top: 0; }
+
+  /* Displays second level dropdowns to the right of the first level dropdown */
+  ul ul ul {
+    left: 100%;
+    top: 0;
+  }
+}

@@ -1,0 +1,114 @@
+{% extends 'ncrcrd/base.html' %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex">
+  <div id="homepage-carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      {% for block in page.carousel %}
+      <li data-target="#homepage-carousel" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+      {% endfor %}
+    </ol>
+    <div class="carousel-inner">
+      {% for block in page.carousel %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <a href="{% pageurl block.value.page %}">
+          {% image block.value.picture original as picture %}
+          <img class="picture d-block w-100" src="{{ picture.url }}">
+        </a>
+        <div class="carousel-caption">
+          <h5>{{ block.value.title }}</h5>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="homepage-news">
+    <div class="d-flex heading">
+      <div><h2>要闻动态</h2></div>
+      <div class="ml-auto more-link">
+        <a href="{% if page.more_news_page %}{% pageurl page.more_news_page %}{% else %}#{% endif %}"><span>More&nbsp;<img src="{% static 'ncrcrd/img/more.png' %}"></span></a>
+      </div>
+    </div>
+    <ul>
+      {% for block in page.news %}
+      <li class="{% if forloop.first %}headline{% endif %}">
+        <a class="{% if not forloop.first %}line-clamp{% endif %}" href="{{ block.value.page.url }}">{{ block.value.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<div class="d-flex" id="homepage-banner">
+  <a href="https://account.zrpf.ns-demo.cn/" target="_blank">
+    <img src="{% static 'ncrcrd/img/banner.png' %}">
+    <div class="platform-entrance">
+      <h2>呼吸疾病临床研究大数据平台</h2>
+      <p>以临床研究提升改善医疗服务质量，以规范化诊疗推广验证临床研究成果</p>
+      <span>立即进入</span>
+    </div>
+  </a>
+</div>
+
+<div class="d-flex">
+  <div id="homepage-platform" class="flex-grow-1 d-flex flex-column justify-content-between">
+    <div class="platform-system pt-4 pl-3"><span></span><span></span><span>平台系统</span></div>
+    <div class="systems d-flex flex-wrap">
+      <a href="https://metadata.zrpf.ns-demo.cn/" target="_blank">
+        <div class="system-card">
+          <h3>数据标准转换系统</h3>
+          <img src="{% static 'ncrcrd/img/sjzh.png' %}">
+        </div>
+      </a>
+      <a href="https://pm.zrpf.ns-demo.cn/" target="_blank">
+        <div class="system-card">
+          <h3>研究项目管理系统</h3>
+          <img src="{% static 'ncrcrd/img/yjxm.png' %}">
+        </div>
+      </a>
+      <a href="https://edc.zrpf.ns-demo.cn/" target="_blank">
+        <div class="system-card">
+          <h3>数据采集和管理系统</h3>
+          <img src="{% static 'ncrcrd/img/sjcj.png' %}">
+        </div>
+      </a>
+      <a href="https://qc.zrpf.ns-demo.cn/" target="_blank">
+        <div class="system-card">
+          <h3>临床诊疗质控系统</h3>
+          <img src="{% static 'ncrcrd/img/lczl.png' %}">
+        </div>
+      </a>
+      <a href="https://edu.zrpf.ns-demo.cn/" target="_blank">
+        <div class="system-card">
+          <h3>研究方法学培训系统</h3>
+          <img src="{% static 'ncrcrd/img/yjffx.png' %}">
+        </div>
+      </a>
+      <a href="https://ncrcrd.einmatrix.com/%E4%B8%AD%E5%BF%83%E4%BB%8B%E7%BB%8D/%E6%96%B0%E9%97%BB%E5%8A%A8%E6%80%81/%E6%96%B9%E6%B3%95%E5%AD%A6%E9%97%A8%E8%AF%8A/" target="_blank">
+        <div class="system-card">
+          <h3>临床研究方法学门诊</h3>
+          <img src="{% static 'ncrcrd/img/lcyj.png' %}">
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div id="homepage-network">
+    <img src="{% static 'ncrcrd/img/homepage-network.png' %}">
+    <div><span></span><span></span><span>科研网络</span></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block body_more %}
+  <script>
+    (function() {
+      for (var x of document.getElementsByClassName('line-clamp')) {modules.clamp(x, {clamp:2})}
+    })();
+  </script>
+{% endblock %}

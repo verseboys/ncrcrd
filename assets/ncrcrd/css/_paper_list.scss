@@ -1,0 +1,32 @@
+// 科研成果/重要论文
+.paper-list-article-card {
+  width: 871px;
+  height: 133px;
+  box-shadow: 0 2px 2px 1px #e1e7ed;
+  background-color: var(--white);
+  padding:15px;
+  margin-bottom:15px;
+  .article_link {
+    line-height:22px;
+    a {
+      color:#403f40;
+      text-decoration: none;
+      font-size: 20px;
+    }
+  }
+  .d-flex {
+    h4 {
+      font-size: 16px;
+      color: #9b9b9b;
+      padding-top:2px;
+      font-weight:normal;
+    }
+    .article_author {
+      padding-left:20px;
+    }
+    span {
+      font-size: 16px;
+      color: #9b9b9b;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{% load wagtailimages_tags %}
+<div class="d-flex">
+  {% image value.picture fill-98x124 class="picture" %}
+  <div class="text d-flex flex-column">
+    <h1 class="name">{{ value.name }}</h1>
+    <p class="description">{{ value.description }}</p>
+  </div>
+</div>

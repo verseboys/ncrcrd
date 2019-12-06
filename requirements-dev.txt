@@ -1,0 +1,4 @@
+# this file contains dependencies only need in local dev env
+-r requirements.txt
+ipython==7.2.0
+ptpython==2.0.4

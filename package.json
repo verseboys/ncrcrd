@@ -1,0 +1,56 @@
+{
+  "name": "@natureself/cms",
+  "version": "1.0.0",
+  "description": "NatureSelf CMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.evahealth.net:natureself/cms.git"
+  },
+  "author": "Natureself Developers",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@vue/babel-preset-app": "^3.11.0",
+    "axios": "^0.18.1",
+    "babel-loader": "^8.0.6",
+    "bootstrap": "^4.3.1",
+    "clamp-js-main": "^0.11.6",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^2.1.1",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.12.0",
+    "open-iconic": "^1.1.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "popper.js": "^1.15.0",
+    "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.4.1",
+    "vue": "^2.6.10",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^15.7.1",
+    "vue-select": "^2.6.4",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
+    "vuetable-2": "^1.7.5",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {
+    "webpack-bundle-tracker": "^0.4.2-beta"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@vue/app"
+    ]
+  }
+}

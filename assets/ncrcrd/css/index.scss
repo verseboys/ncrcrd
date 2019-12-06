@@ -1,0 +1,47 @@
+/*
+
+Layout:
+
+      +------------------------------------------------+
+      |                                                |
+      |                banner image                    |
+      +------------------------------------------------+
+      |                navbar (menu)                   |
+      +------------+-----------------------------------+
+      |            | breadcrumb                        |
+      |            +-----------------------------------|
+      |            | main content                      |
+      |            |                                   |
+      |            |                                   |
+      |            |                                   |
+      |  sidebar   |                                   |
+      |            |                                   |
+      |            |                                   |
+      |            |                                   |
+      |            |                                   |
+      |            |                                   |
+      |            |                                   |
+      |            |                                   |
+      |            |                                   |
+      +------------+-----------------------------------+
+
+*/
+@import 'variables';
+
+@import "~bootstrap/scss/bootstrap";
+@import "~open-iconic/font/css/open-iconic-bootstrap.scss";
+
+@import 'global';
+@import 'banner';
+@import 'navbar';
+@import 'body';
+@import 'sidebar';
+@import 'breadcrumb';
+@import 'main_content';
+@import 'footer';
+@import 'blocks';
+
+@import 'homepage';
+@import 'paper_list';
+@import 'course_list';
+@import 'news_list';

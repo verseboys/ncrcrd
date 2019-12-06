@@ -1,0 +1,7 @@
+settings_local.py
+node_modules/
+build/
+db.sqlite3
+media/
+*.py[cd]
+__pycache__/

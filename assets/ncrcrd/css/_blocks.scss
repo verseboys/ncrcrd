@@ -1,0 +1,210 @@
+// StreamField 中每一种 block 的样式定制
+
+.stream-field {
+  margin: 0.5em 0;
+}
+
+// TitleBlock，文章标题
+.block-title h1 {
+  font-size: 24px;
+  margin-bottom: 1.5em;
+  padding-top: 36px;
+}
+
+// HeadingBlock，段落标题
+.block-heading {
+  margin: 1.5em 0;
+  width: 100%;
+
+  h2 {
+    font-size: 16px;
+    height: 30px;
+    background-color: #ebeaea;
+    padding-left: 0.5em;
+  }
+
+  h2::before {
+    content: '';
+    display: inline-block;
+    height: 30px;
+    width: 5px;
+    background-color: var(--navbar-background-active);
+    position: relative;
+    left: -0.5em;
+    vertical-align: -50%;
+  }
+}
+
+// ParagraphBlock
+.block-paragraph p {
+  text-indent: 2em;
+}
+
+// image 类型
+.block-image img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// 富文本段落中的图片，我们也设置为居中
+img.richtext-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// 富文本的段落强制最少为24px（字体大小），这样空的 <p></p> 也会占用空间
+.rich-text p {
+  min-height: 24px;
+}
+
+.block-person_card>div {
+  background-color: #ebeaea;
+  padding: 12px;
+
+  .text {
+    padding-left: 20px;
+    padding-top: 22px;
+  }
+
+  .name {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 18px;
+    margin-top: 12px;
+  }
+}
+
+.block-organization_card>div {
+  background-color: var(--white);
+  box-shadow: 0 2px 2px 1px #e1e7ed;
+  padding: 12px 40px;
+  height: 170px;
+
+  .text {
+    padding-left: 20px;
+    padding-top: 22px;
+  }
+
+  .name {
+    font-size: 20px;
+    color: #3b3c3d;
+  }
+
+  .description {
+    font-size: 15px;
+    margin-top: 12px;
+    color: #3b3c3d;
+  }
+}
+
+.block-study_card>div {
+  background-color: var(--white);
+  box-shadow: 0 2px 2px 1px #e1e7ed;
+  height: 170px;
+  padding: 12px 40px;
+  position: relative;
+  overflow: hidden;
+
+  .title {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .content {
+    font-size: 12px;
+  }
+
+  .badge {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    font-size: 14px;
+    transform: rotate(45deg);
+
+    span {
+      color: #f5f5f5;
+      margin-top: auto;
+      margin-bottom: 5px;
+    }
+  }
+
+  .badge.ongoing {
+      background-color: #f5a623;
+  }
+
+  .badge.finished {
+      background-color: var(--success);
+  }
+}
+
+.block-book_card>div {
+  background-color: var(--white);
+
+  box-shadow: 0 2px 2px 1px #e1e7ed;
+  padding: 12px 40px;
+  height: 240px;
+
+  .picture-container {
+    flex: 0 0 180px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .picture {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .text {
+    padding-left: 0px;
+    padding-top: 22px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .author {
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}
+
+.block-table {
+  table {
+    width:866px;
+  }
+
+  thead {
+    background-color: #f9bebe;
+    th {
+      padding:12px 10px;
+      width:120px;
+    }
+  }
+
+  tbody {
+    td {
+      padding:12px 10px;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #f2f3f4;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fcfbfb;
+    }
+  }
+}

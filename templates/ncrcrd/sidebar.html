@@ -1,0 +1,16 @@
+{% load menu_tags %}
+<div class="d-flex flex-column">
+{% if show_section_root and section_root %}
+<a class="menu-0" href="{{ section_root.href }}" class="{{ section_root.active_class }} section_root">{{ section_root.text }}</a>
+{% endif %}
+<ul class="menu-{{ current_level }}">
+  {% for item in menu_items %}
+  <li class="menu-{{ current_level }} {{ item.active_class }}">
+    <a class="menu-{{ current_level }} "href="{{ item.href }}">{{ item.text }}</a>
+    {% if item.has_children_in_menu %}
+      {{ item.sub_menu.render_to_template }}
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+</div>

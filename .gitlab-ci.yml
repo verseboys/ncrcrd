@@ -1,0 +1,54 @@
+image: registry.ns-inc.cn/ops/nsci:docker
+
+stages:
+  - build
+  - deploy
+
+before_script:
+- setup-nsci
+
+Build Image:
+  stage: build
+  only:
+  - branches
+  script:
+  - docker build -t ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA} -t ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG} .
+  - docker push ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA}
+  - docker push ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}
+
+Build Tag Image:
+  stage: build
+  only:
+  - tags
+  script:
+  - docker build -t ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG} --build-arg RELEASE=${CI_COMMIT_REF_SLUG} .
+  - docker push ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}
+
+.deploy_base: &deploy_base
+  stage: deploy
+  script:
+  - kubectl -n ${NAMESPACE} set image ${WORKLOAD} "*=${CI_REGISTRY_IMAGE}:${IMAGE_TAG}"
+  - kubectl -n ${NAMESPACE} rollout status ${WORKLOAD}
+
+Update Testing:
+  <<: *deploy_base
+  only:
+  - master
+  variables:
+    KUBE_CLUSTER: bjo
+    NAMESPACE: testing
+    WORKLOAD: deploy/cms
+    IMAGE_TAG: ${CI_COMMIT_SHORT_SHA}
+
+Update Production:
+  <<: *deploy_base
+  when: manual
+  only:
+  - /^release-.*$/
+  except:
+  - branches
+  variables:
+    KUBE_CLUSTER: alibj
+    NAMESPACE: misc
+    WORKLOAD: deploy/cms
+    IMAGE_TAG: ${CI_COMMIT_REF_SLUG}

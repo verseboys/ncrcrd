@@ -1,0 +1,24 @@
+// 科研培训
+.course-list-article-card {
+    width: 871px;
+    height: 179px;
+    box-shadow: 0 2px 2px 1px #e1e7ed;
+    background-color: var(--white);
+    margin-bottom:15px;
+    img {
+      margin:25px 20px;
+    }
+    .article-card-content {
+      padding-right:20px;
+      .article-card-title {
+        padding-top:20px;
+        a {
+          font-size: 20px;
+          font-weight: 600;
+          letter-spacing: -1.5px;
+          color: #3b3c3d;
+          text-decoration: none;
+        }
+      }
+    }
+}

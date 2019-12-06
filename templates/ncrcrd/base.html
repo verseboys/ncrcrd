@@ -1,0 +1,95 @@
+{% load static %}
+{% load render_bundle from webpack_loader %}
+{% load menu_tags %}
+{% load wagtailcore_tags %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      {% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}
+      {% block title_postfix %}{% endblock %}
+    </title>
+    {% if self.search_description %}<meta name="description" content="{{ self.search_description }}">{% endif %}
+    {% render_bundle 'ncrcrd' 'css' %}
+    {% block head_more %}{% endblock %}
+    <link rel="shortcut icon" href="{% static 'ncrcrd/img/favicon.png' %}">
+  </head>
+
+  <body class="{% block body_class %}{% endblock %}">
+    <div id="app">
+      <header class="header">
+        <div class="banner">
+          <div class="container vertical-align">
+            <div class="logo d-flex">
+              <h1>
+                <a href="#"><img src="{% static 'ncrcrd/img/logo0.png' %}" alt="Logo"></a>
+                <a href="#"><img src="{% static 'ncrcrd/img/logo1.png' %}" alt="Logo"></a>
+              </h1>
+              <h2><a href="/"><img src="{% static 'ncrcrd/img/logo2.png' %}" alt="Logo"></a></h2>
+            </div>
+          </div>
+        </div>
+        <nav class="navbar">
+          <div class="container">
+            {% main_menu max_levels=3 add_sub_menus_inline=True template="ncrcrd/menu.html" sub_menu_template="ncrcrd/menu.html" %}
+          </div>
+        </nav>
+      </header>
+
+      <div id="body" class="container d-flex">
+        {% if self.show_sidebar %}
+        <aside class="sidebar">
+          {% section_menu max_levels=2 add_sub_menus_inline=True template="ncrcrd/sidebar.html" %}
+        </aside>
+        {% endif %}
+
+        <div class="flex-grow-1 d-flex flex-column {% if self.show_sidebar %}ml-4{% endif %}">
+          {% if self.show_breadcrumb and self.get_ancestors|length > 1 %}
+          <ol class="breadcrumb">
+
+            {% for page in self.get_ancestors %}
+            {% if page.is_root %}
+            {% elif page.depth == 2 %}
+            <li class="breadcrumb-item"><a href="{% pageurl page %}"><span class="oi oi-home"></span></a></li>
+            {% else %}
+            <li class="breadcrumb-item"><a href="{% pageurl page %}">{{ page.breadcrumb_title|default:page.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+
+            <li class="breadcrumb-item active">{{ self.breadcrumb_title|default:self.title }}</li>
+          </ol>
+          {% endif %}
+
+          <div class="main-content">{% block content %}{% endblock %}</div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="hr"></div>
+        <div class="footer">
+          <div class="container h-100">
+            <div class="d-flex h-100">
+              <div class="heading">
+                <span>友情<br/>链接</span>
+              </div>
+              <div class="links flex-grow-1 d-flex flex-wrap justify-content-around">
+                <div class="link"><a target="_blank" href="http://www.nhc.gov.cn/">中国人民共和国国家卫生健康委员会</a></div>
+                <div class="link"><a target="_blank" href="http://www.most.gov.cn/">中国人民共和国科学技术部</a></div>
+                <div class="link"><a target="_blank" href="http://ncrc.gyfyy.com/">国家呼吸系统疾病临床医学研究中心</a></div>
+                <div class="link"><a target="_blank" href="http://ncrc.fuwai.com/">国家心血管疾病临床研究中心</a></div>
+                <div class="link"><a target="_blank" href="https://www.hxylt.org.cn/">全国呼吸专科医联体</a></div>
+                <div class="link"><a target="_blank" href="https://www.cardpc.org/">中国基层呼吸疾病防治联盟</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    {% render_bundle 'ncrcrd' 'js' %}
+    {% block body_more %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,28 @@
+// 中心介绍/新闻动态
+.news-card {
+    border-bottom:1px solid #d9d9db;
+    .picture {
+        margin:20px 15px;
+    }
+    .text {
+        padding-top:17px;
+        padding-right: 16px;
+        .title {
+            font-size: 18px;
+            font-weight: bolder;
+            color: #222222;
+        }
+        .introduction {
+            font-size: 15px;
+            color: #727a89;
+        }
+        .publish_date {
+            font-size: 14px;
+            color: #727a89;
+        }
+    }
+}
+
+.news-card:hover {
+  text-decoration: none;
+}

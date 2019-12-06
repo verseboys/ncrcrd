@@ -1,0 +1,21 @@
+{% extends 'ncrcrd/base.html' %}
+
+{% load wagtailcore_tags%}
+
+{% block content %}
+  {% for article in articles %}
+    <div class="paper-list-article-card">
+      {% if article.link %}
+        <h2 class="article_link"><a href="{{ article.link }}" target="_blank">{{ article.introduction }}</a></h2>
+      {% else %}
+        <h2>{{ article.introduction }}</h2>
+      {% endif %}
+        <div class="d-flex">
+          <span>{{ article.magazine }}</span>
+          <!-- <h4>{{ article.published_at | date:"Y" }}</h4> -->
+          <h4 class="article_author">{{ article.authors }}</h4>
+        </div>
+    </div>
+  {% endfor %}
+  {% include 'ncrcrd/widgets/pagination.html' with articles=articles %}
+{% endblock %}

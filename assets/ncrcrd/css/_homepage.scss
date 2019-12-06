@@ -1,0 +1,244 @@
+#homepage-carousel {
+  width: 560px;
+  height: 395px;
+  position:relative;
+
+  .picture {
+    width: 560px;
+    height: 395px;
+  }
+
+  .carousel-caption {
+    width: 568px;
+    height: 161px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.75));
+    right: 0;
+    bottom: 0;
+    left: 0;
+    h5 {
+      font-size: 18px;
+      padding-top: 66px;
+      width: 514px;
+      text-align: left;
+      margin: 0 auto;
+      line-height: 26px;
+    }
+  }
+
+  .carousel-indicators {
+    margin-right: 0;
+    margin-left: 0;
+    position: absolute;
+    left: 430px;
+    bottom:-6px;
+    li {
+      width:13px;
+      height:7px;
+    }
+  }
+}
+
+#homepage-news {
+  width: 540px;
+  height: 395px;
+  margin-left: 10px;
+  background-color: #eaeaf1;
+
+  .heading {
+    margin: 20px;
+    border-bottom: 1px solid #a60000;
+    h2 {
+      font-size: 18px;
+      font-weight: 500;
+      color: #a60000;
+    }
+
+    span {
+      font-size: 16px;
+      color: #a60000;
+    }
+  }
+
+  ul {
+    padding-left: 32px;
+    padding-right: 30px;
+  }
+
+  li {
+    list-style: none;
+    font-size: 16px;
+    line-height:26px;
+    display: flex;
+    padding-top:6px;
+    a {
+      padding-left:5px;
+      color: #3b3c3d;
+    }
+    a:hover {
+      text-decoration:none;
+      color:#890404;
+    }
+  }
+
+  li::before {
+    content: "·";
+    // position: relative;
+    // left: -5px;
+    font-weight: bolder;
+  }
+
+  li.headline {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding-right:10px;
+  }
+
+  li.headline::before {
+    content: " ";
+  }
+}
+
+#homepage-network {
+  margin-top: 15px;
+  margin-left: 10px;
+  position: relative;
+
+  > div {
+    position: absolute;
+    top: 24px;
+    left: 15px;
+    line-height: 18px;
+    height: 18px;
+
+    span:nth-child(1) {
+      width: 7px;
+      height: 18px;
+      background: #fff;
+      display: inline-block;
+    }
+
+    span:nth-child(2) {
+      width: 4px;
+      height: 18px;
+      background: #fff;
+      display: inline-block;
+      margin-left: 5px;
+    }
+
+    span:nth-child(3) {
+      vertical-align: top;
+      padding-left: 10px;
+      color: #fff;
+      font-size: 20px;
+    }
+  }
+}
+
+#homepage-platform {
+  width: 550px;
+  height: 380px;
+  margin-top: 15px;
+  background: var(--sidebar-background-1);
+
+  .platform-system {
+    line-height: 18px;
+    height: 18px;
+
+    span:nth-child(1) {
+      width: 7px;
+      height: 18px;
+      background: var(--navbar-background);
+      display: inline-block;
+    }
+
+    span:nth-child(2) {
+      width: 4px;
+      height: 18px;
+      background: var(--navbar-background);
+      display: inline-block;
+      margin-left: 5px;
+    }
+
+    span:nth-child(3) {
+      vertical-align: top;
+      padding-left: 10px;
+      font-size: 20px;
+    }
+  }
+
+  .systems {
+    a {
+      text-decoration: none;
+      margin-left: 11px;
+      margin-bottom: 10px;
+
+      .system-card {
+        width:172px;
+        height:146px;
+        background:rgba(255,255,255,1);
+        border-radius:5px;
+
+        h3 {
+          font-size: 16px;
+          text-align: center;
+          line-height: 34px;
+          font-weight: 400;
+          color: #3A3A3A;
+          margin-bottom: 0;
+          padding-top: 12px;
+        }
+
+        img {
+          padding: 10px;
+        }
+      }
+      
+      &:hover {
+        box-shadow:0px 2px 6px 0px rgba(0,0,0,0.13);
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+#homepage-banner {
+  position: relative;
+  text-decoration: none;
+  margin-top: 15px;
+    
+  .platform-entrance {
+    width: 455px;
+    position: absolute;
+    top: 50px;
+    left: 30%;
+    color: #fff;
+    text-align: center;
+
+    h2 {
+      font-size: 35px;
+      font-weight: 400;
+    }
+
+    p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    span {
+      width: 85px;
+      height: 30px;
+      display: block;
+      text-align: center;
+      line-height: 30px;
+      background: #890404;
+      border-radius:2px;
+      font-size: 15px;
+      margin: 0 auto;
+
+      &:hover {
+        background: var(--navbar-background);
+      }
+    }
+  }
+}

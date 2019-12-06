@@ -1,0 +1,22 @@
+{% load cms_tags %}
+<div class="d-flex w-871 pagination justify-content-center text-center">
+  {% if articles.has_previous %}
+  <a class="pagination-previous" href="?{% url_replace page=articles.previous_page_number %}">上一页</a>
+  {% else %}
+  <span>上一页</span>
+  {% endif %}
+
+  {% for page_number in articles.paginator.page_range %}
+  {% if articles.number == page_number %}
+  <span>{{ page_number }}</span>
+  {% else %}
+  <a class="pagination-step" href="?{% url_replace page=page_number %}">{{ page_number }}</a>
+  {% endif %}
+  {% endfor %}
+
+  {% if articles.has_next %}
+  <a class="pagination-next" href="?{% url_replace page=articles.next_page_number %}">下一页</a>
+  {% else %}
+  <span>下一页</span>
+  {% endif %}
+</div>
