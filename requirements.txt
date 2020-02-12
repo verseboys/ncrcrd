@@ -1,4 +1,4 @@
-Django==2.1.4
+Django==2.2.10
 wagtail==2.4
 wagtailmenus==2.12
 wagtail-condensedinlinepanel==0.5.2
